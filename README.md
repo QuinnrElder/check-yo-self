@@ -153,39 +153,60 @@ Here are the links to the icon SVG files.
 ### Rubric score key:
 
 4: Over-achievement - student did self-teaching and accomplished beyond scope of project, without sacrificing code quality in the pursuit of extensions; all code demonstrates strong mastery of DRY principles and SRP conventions
+
 3: Right on track - student is exactly where we want them to be, has a strong foundation, and demonstrates competency and comfort with the subject
+
 2: A little behind - student needs to focus study in this area to catch up to where they should be in terms of proficiency
+
 1: Very behind - student needs intervention to get back on track
 
 ### Functional Expectations
 4: Application meets all of the expectations from Iteration 3.
+
 3: Application meets all of the expectations of Iteration 2.
+
 2: Application meets all of the expectations of Iteration 1 and one of the 2 parts of Iteration 2.
+
 1: Application meets all of the expectations of Iteration 0.
 
 ### Professionalism
-4: A PR template was used. A code review was requested and completed by a mentor, and all team members can speak to how the feedback in code review was implemented (and point to the commit(s) that implemented the feedback). AND: Developer is ready to clearly present the evolution of this app during the eval - from architecture decisions made in the planning process, to wins and challenges throughout.
-3: Developer is able to clearly answer questions regarding the evolution of this app during the eval - from architecture decisions made in the planning process, to wins and challenges throughout. AND: A project board is used and kept update throughout the project. Branches are used. Most commits are formatted correctly. The README is formatted well and contains:
-Overview of project and goals
-Overview of technologies used, challenges, and wins, any other reflections
-Screenshots of comp and your app
-2: Developer is able to answer questions regarding the evolution of the app, but may need some prompts to clearly articulate or provide enough context. More than a few commits are formatted incorrectly. The README is formatted well but may be lacking in detail.
-1: Developer struggles to answer questions regarding the evolution of the app. OR: Commit and PR history does not tell a story of the application OR a README has not been created/has minimal information.
+4: 
+- A PR template was used. A code review was requested and completed by a mentor, and all team members can speak to how the feedback in code review was implemented (and point to the commit(s) that implemented the feedback). 
+- AND: Developer is ready to clearly present the evolution of this app during the eval - from architecture decisions made in the planning process, to wins and challenges throughout.
+
+3: 
+- Developer is able to clearly answer questions regarding the evolution of this app during the eval from architecture decisions made in the planning process, to wins and challenges throughout. AND: A project board is used and kept update throughout the project. Branches are used. Most commits are formatted correctly. The README is formatted well and contains:
+- Overview of project and goals
+- Overview of technologies used, challenges, and wins, any other reflections
+- Screenshots of comp and your app
+
+2: 
+- Developer is able to answer questions regarding the evolution of the app, but may need some prompts to clearly articulate or provide enough context. More than a few commits are formatted incorrectly. The README is formatted well but may be lacking in detail.
+
+1: 
+- Developer struggles to answer questions regarding the evolution of the app. OR: Commit and PR history does not tell a story of the application OR a README has not been created/has minimal information.
 
 ### JavaScript - Style and Implementation
-4: Code is well refactored and demonstrates developer empathy.
-No global variables are used aside from query selectors, start time, and instances of Player and Deck. If you feel you need more because you are building out additional functionality that requires a global variable, please check in with an instructor.
+4: 
+- Code is well refactored and demonstrates developer empathy.
+- No global variables are used aside from query selectors, start time, and instances of Player and - Deck. If you feel you need more because you are building out additional functionality that requires a global variable, please check in with an instructor.
 All functions are less than 10 lines long or otherwise demonstrate SRP.
-3: The separation of data model logic and presentational logic is clear and can be explained by developer.
-The application correctly implements a data model for the Card and Deck classes, including all required methods.
-Developer can speak to the role of each class.
-All DOM manipulation is handled exclusively in main.js.
-Developer demonstrates understanding and ability to refactor code by having at least 1 example of DRY code that was intentionally reused.
-SRP is evidenced by clear, concise function names; each function only does what the name describes.
-2: Arguments and parameters are used to limit global variables.
-The event object is used correctly, and is not accepted as a parameter if it is not necessary.
-Developer can speak to how the event object is utilized for any given event handler.
-Function and variable names describe their role in the program. Examples: The name of the data type should not ever be in a variable name (ex: “petArray”); the name itself should be clear enough to indicate the type of data it holds (ex: “allPets”).
-An event handler should not have “handler” in the name (ex: “clickHandler”); the name should indicate the handler’s purpose (ex: “addNewPet”).
-1: Style and syntax meets the criteria of the Turing JS Style Guide.
-Function declarations are used over anonymous 
+
+3: 
+- The separation of data model logic and presentational logic is clear and can be explained by developer.
+- The application correctly implements a data model for the Card and Deck classes, including all required methods.
+- Developer can speak to the role of each class.
+- All DOM manipulation is handled exclusively in main.js.
+- Developer demonstrates understanding and ability to refactor code by having at least 1 example of - DRY code that was intentionally reused.
+- SRP is evidenced by clear, concise function names; each function only does what the name describes.
+
+2: 
+- Arguments and parameters are used to limit global variables.
+- The event object is used correctly, and is not accepted as a parameter if it is not necessary.
+- Developer can speak to how the event object is utilized for any given event handler.
+- Function and variable names describe their role in the program. Examples: The name of the data type should not ever be in a variable name (ex: “petArray”); the name itself should be clear enough to indicate the type of data it holds (ex: “allPets”).
+- An event handler should not have “handler” in the name (ex: “clickHandler”); the name should indicate the handler’s purpose (ex: “addNewPet”).
+
+1: 
+- Style and syntax meets the criteria of the Turing JS Style Guide.
+- Function declarations are used over anonymous 

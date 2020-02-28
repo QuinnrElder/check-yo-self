@@ -67,23 +67,37 @@ form {
 }
 
 .task-title-text {
-  font-size: 150%;
+  font-size: 2em;
   margin: 6% 0 0 3%;
   color: #F3F6F7;
 }
 
 .title-of-task-input {
-  height: 6em;
+  height: 5em;
   margin: 0 3%;
   border: 2px solid #1f1f3d;
 }
 
 .container-adding-tasks {
+display: inline-flex;
+flex-direction: column;
+justify-content: space-between;
+}
 
+.new-aside-tasks {
+  display: flex;
+  margin: 4%;
+  font-size: 1.5em;
+    color: #F3F6F7;
+  }
+
+.delete-img {
+  width: 1em;
+  margin-right: 3%;
 }
 
 .task-item-text {
-  font-size: 150%;
+  font-size: 2em;
   margin: 6% 0 0 3%;
   color: #F3F6F7;
 }
@@ -93,14 +107,14 @@ form {
 }
 
 .task-items-input {
-  height: 6em;
+  height: 5em;
   margin-left: 3%;
   width: 71%;
   border: 2px solid #1f1f3d;
 }
 
 .addition-task-btn {
-  height: 6em;
+  height: 5em;
   width: 23%;
   background-color: #1f1f3d;
   border: 2px solid #1f1f3d;
@@ -118,7 +132,7 @@ form {
   background-color: #1f1f3d;
   border: 2px solid #1f1f3d;
   color: #FFF;
-  font-size: 2em;
+  font-size: 1.7em;
 }
 
 .clear-all-btn {
@@ -127,7 +141,7 @@ form {
   background-color: #1f1f3d;
   border: 2px solid #1f1f3d;
   color: #FFF;
-  font-size: 2em;
+  font-size: 1.7em;
 }
 
 .urgency-btn {
@@ -136,7 +150,7 @@ form {
   background-color: #1f1f3d;
   border: 2px solid #1f1f3d;
   color: #FFF;
-  font-size: 2em;
+  font-size: 1.7em;
 }
 
 .container-all-todo-cards {

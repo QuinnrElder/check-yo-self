@@ -11,7 +11,7 @@ body {
 
 header {
 background-color: #1f1f3d;
-height: 13%;
+height: 15%;
 width: 100vw;
 }
 
@@ -19,16 +19,16 @@ width: 100vw;
   display: inline-flex;
   flex-direction: row;
   width:100%;
-  padding: 1%;
+  margin-top: 1%;
 }
 
 h1 {
   color: #FFF;
   font-family: open sans-serif;
-   font-size: 300%;
+   font-size: 330%;
   font-weight: 800;
   margin: 0 20% 0 8%;
-  width: 45%; 
+  width: 50%; 
 }
 
 .yo-title-txt {
@@ -41,7 +41,7 @@ h1 {
 }
 
 .search-bar-btn {
-   width: 20%;
+   width: 25%;
   background-color: lightgray; 
 }
 

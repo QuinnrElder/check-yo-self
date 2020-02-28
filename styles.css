@@ -3,7 +3,7 @@
 }
 
 body {
-  font-family: arial;
+  font-family: open sans-serif;
   height: 100vh;
   margin: 0;
   width: 100vw;
@@ -24,7 +24,6 @@ width: 100vw;
 
 h1 {
   color: #FFF;
-  font-family: open sans-serif;
    font-size: 330%;
   font-weight: 800;
   margin: 0 20% 0 8%;
@@ -45,18 +44,15 @@ h1 {
   background-color: lightgray; 
 }
 
-.search-bar-img {
-
-}
-
 .search-bar-input {
   width: 80%;
   font-size: xx-large;
 }
 
 main {
-
+display: flex;
 }
+
 
 aside {
   background-color: #587a8a;
@@ -73,6 +69,7 @@ form {
 .task-title-text {
   font-size: 150%;
   margin: 6% 0 0 3%;
+  color: #F3F6F7;
 }
 
 .title-of-task-input {
@@ -88,6 +85,7 @@ form {
 .task-item-text {
   font-size: 150%;
   margin: 6% 0 0 3%;
+  color: #F3F6F7;
 }
 
 .container-task-input-and-btn {
@@ -115,35 +113,43 @@ form {
 }
 
 .create-todo-btn {
-  height: 6em;
+  height: 2em;
   margin: 7% 3% 3.5%;
   background-color: #1f1f3d;
   border: 2px solid #1f1f3d;
   color: #FFF;
+  font-size: 2em;
 }
 
 .clear-all-btn {
-  height: 6em;
+  height: 2em;
   margin: 3.5% 3%;
   background-color: #1f1f3d;
   border: 2px solid #1f1f3d;
   color: #FFF;
+  font-size: 2em;
 }
 
 .urgency-btn {
-  height: 6em;
+  height: 2em;
   margin: 10% 3%;
   background-color: #1f1f3d;
   border: 2px solid #1f1f3d;
   color: #FFF;
+  font-size: 2em;
 }
 
 .container-all-todo-cards {
-
+display: flex;
+width: 100vw;
+flex-direction: column;
 }
 
 .container-no-todo-tasks {
-
+  text-align: center;
+  font-size: 400%;
+  opacity: .5;
+  margin: 10%;
 }
 
 .container-todo-card-info {

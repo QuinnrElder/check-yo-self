@@ -10,23 +10,39 @@ body {
 }
 
 header {
+background-color: #1f1f3d;
+height: 13%;
+width: 100vw;
+}
 
+.container-header-info {
+  display: inline-flex;
+  flex-direction: row;
+  width:100%;
+  padding: 1%;
 }
 
 h1 {
-
+  color: #FFF;
+  font-family: open sans-serif;
+   font-size: 300%;
+  font-weight: 800;
+  margin: 0 20% 0 8%;
+  width: 45%; 
 }
 
 .yo-title-txt {
+  color: #ffc30c;
+}
 
+.container-search-bar {
+  display: flex;
+  width: 15%;
 }
 
 .search-bar-btn {
-
-}
-
-.search-bar-img {
-
+   width: 20%;
+  background-color: lightgray; 
 }
 
 .search-bar-img {
@@ -34,7 +50,8 @@ h1 {
 }
 
 .search-bar-input {
-
+  width: 80%;
+  font-size: xx-large;
 }
 
 main {
@@ -42,51 +59,83 @@ main {
 }
 
 aside {
-
+  background-color: #587a8a;
+  width: 33%;
+  height: 100vh;
 }
 
 form {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+}
+
+.task-title-text {
+  font-size: 150%;
+  margin: 6% 0 0 3%;
+}
+
+.title-of-task-input {
+  height: 6em;
+  margin: 0 3%;
+  border: 2px solid #1f1f3d;
+}
+
+.container-adding-tasks {
 
 }
 
-task-title-text {
-
+.task-item-text {
+  font-size: 150%;
+  margin: 6% 0 0 3%;
 }
 
-title-of-task-input {
-
-}
-
-container-adding-tasks {
-
-}
-
-task-item-text {
-
+.container-task-input-and-btn {
+  display: inline-flex;
 }
 
 .task-items-input {
-
+  height: 6em;
+  margin-left: 3%;
+  width: 71%;
+  border: 2px solid #1f1f3d;
 }
 
 .addition-task-btn {
-
+  height: 6em;
+  width: 23%;
+  background-color: #1f1f3d;
+  border: 2px solid #1f1f3d;
 }
 
 .addition-task-btn-img {
-
+  margin: 0;
+  font-size: 400%;
+  color: #FFF;
 }
 
 .create-todo-btn {
-
+  height: 6em;
+  margin: 7% 3% 3.5%;
+  background-color: #1f1f3d;
+  border: 2px solid #1f1f3d;
+  color: #FFF;
 }
 
 .clear-all-btn {
-
+  height: 6em;
+  margin: 3.5% 3%;
+  background-color: #1f1f3d;
+  border: 2px solid #1f1f3d;
+  color: #FFF;
 }
 
 .urgency-btn {
-
+  height: 6em;
+  margin: 10% 3%;
+  background-color: #1f1f3d;
+  border: 2px solid #1f1f3d;
+  color: #FFF;
 }
 
 .container-all-todo-cards {
@@ -98,7 +147,7 @@ task-item-text {
 }
 
 .container-todo-card-info {
-  
+
 }
 
 

@@ -9,11 +9,15 @@
 
 <body>
   <header>
-    <h1>CHECK <span class="yo-title-txt">Yo'</span> SELF</h1>
-    <button class="search-bar-btn" for="search-bar">
-      <img class="search-bar-img" src="assets/search.svg" alt="Magnifying glass search bar button">
-    </button>
-    <input class="search-bar-input" type="text" name="search-bar" autocomplete="off" value="">Search</input>
+    <div class="container-header-info">
+      <h1>CHECK <span class="yo-title-txt">Yo'</span> SELF</h1>
+      <div class="container-search-bar">
+        <button class="search-bar-btn" for="search-bar">
+          <img class="search-bar-img" src="assets/search.svg" alt="Magnifying glass search bar button">
+        </button>
+        <input class="search-bar-input" type="text" name="search-bar" autocomplete="off" value="Search"></input>
+      </div>
+    </div>
   </header>
   <main>
     <aside>
@@ -23,11 +27,13 @@
         <div class="container-adding-tasks-">
           <!-- tasks will populate here before you create a new todo task card -->
         </div>
-        <label class="task-items-text" for="new-task-items">Task Items</label>
-        <input class="task-items-input" type="text" name="new-task-items" autocomplete="off" value="">
-        <button class="addition-task-btn">
-          <img class="addition-task-btn-img" src="assets/plus-sign.svg" alt="Addition symbol for new task in todo list">
-        </button>
+        <label class="task-item-text" for="new-task-items">Task Items</label>
+        <div class="container-task-input-and-btn">
+          <input class="task-items-input" type="text" name="new-task-items" autocomplete="off" value="">
+          <button class="addition-task-btn">
+            <p class="addition-task-btn-img">+</p>
+          </button>
+        </div>
         <button class="create-todo-btn">Make Task List</button>
         <button class="clear-all-btn">Clear All</button>
         <button class="urgency-btn">Filter By Urgency</button>

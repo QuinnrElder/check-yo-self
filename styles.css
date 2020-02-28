@@ -60,7 +60,7 @@ aside {
   height: 100vh;
 }
 
-form {
+.form {
   display: flex;
   justify-content: space-between;
   flex-direction: column;

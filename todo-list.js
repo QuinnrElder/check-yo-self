@@ -1,7 +1,7 @@
 class ToDoList {
   constructor() {
-    this.uniqueId = ;
-    this.title = ;
+    // this.uniqueId = ;
+    // this.title = ;
     this.urgent = false;
     this.tasks = [];
   }

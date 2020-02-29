@@ -121,6 +121,13 @@ justify-content: space-between;
   color: #fff;
 }
 
+.urgency-btn:disabled,
+.clear-all-btn:disabled,
+.create-todo-btn:disabled,
+.addition-task-btn:disabled {
+  background-color: red;
+}
+
 .create-todo-btn {
   height: 2em;
   margin: 7% 3% 3.5%;

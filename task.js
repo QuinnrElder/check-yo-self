@@ -1,13 +1,7 @@
 class Task {
-  constructor() {
-    this.isCreated = false;
-    this.isDeleted = false;
+  constructor(id, content) {
+    this.id = id;
+    this.content = content
+    this.isCompleted = false;
   }
-  created() {
-    this.isCreated = true;
   }
-  deleted() {
-    this.isDeleted = true;
-    this.isCreated = false;
-  }
-}

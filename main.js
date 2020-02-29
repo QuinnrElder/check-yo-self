@@ -23,7 +23,8 @@ function createPotentialTask(event) {
     var newTask = new Task(Date.now(),  inputTask.value);
     taskList.insertAdjacentHTML ( "beforeend",  `<li class="new-aside-tasks" data-id="${newTask.id}"><img class="delete-img"  src="assets/delete.svg" alt="Delete newly created task">${newTask.content}</li>`);
     newToDoList.taskList.push(newTask);
-    console.log(newTask)
+    // console.log( newToDoList.taskList)
+    // console.log(newTask)
     inputTask.value = "";
   }
 }
@@ -33,8 +34,8 @@ function deletePotentialTask(event) {
   if (event.target.closest(".new-aside-tasks")) {
     console.log(event.target.closest(".new-aside-tasks"))
     var taskId = event.target.closest(".new-aside-tasks").getAttribute("data-id")
-    console.log(taskId)
-    newToDoList.deleteFromTaskListArray(taskId);
+    // console.log(taskId)
+    newToDoList.deleteTaskInListArray(taskId);
     event.target.closest(".new-aside-tasks").remove();
   
   }

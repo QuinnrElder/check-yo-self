@@ -8,8 +8,10 @@ class ToDoList {
   }
 
   getTaskObj (taskId) {
-    var taskObj = this.taskList.find (function(task) {
-      return task.id === taskId;
+    console.log(taskId)
+    var taskObj = this.taskList.find(function(task) {
+      console.log(task)
+      return task.id == taskId;
     })
     return taskObj
   }
@@ -26,11 +28,11 @@ removeTaskObj(foundTaskIndex) {
   deleteTaskInListArray(taskId) {
     console.log(taskId)
     var foundObj = this.getTaskObj (taskId)
-    console.log(foundObj)
+    console.log("foundObj", foundObj)
     var foundTaskIndex = this.getIndex(foundObj)
-    console.log(foundTaskIndex)
+    console.log("foundObjIndex", foundTaskIndex)
      this.removeTaskObj(foundTaskIndex)
-      console.log(this.taskList)
+      console.log("updated-task-list", this.taskList)
   }
 
   

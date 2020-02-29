@@ -1,30 +1,39 @@
 var newTask = new Task();
 var newToDoList = new ToDoList();
 
-var addTaskInAside = document.querySelector(".addition-task-btn")
-var formListener = document.querySelector(".form");
+var inputTask = document.querySelector(".task-items-input")
+var inputTitle = document.querySelector(".title-input")
+var addTaskBtn = document.querySelector(".addition-task-btn")
+var asideForm = document.querySelector(".form");
 
-formListener.addEventListener("click", asideEventHandler);
+asideForm.addEventListener("click", eventHandler);
 
-function asideEventHandler(event) {
-  if (event.target.contains(addTaskInAside)){ 
-    checkInputValuesInAside();
-    createPotentialTask();
+function eventHandler(event) {
+  if (event.target === addTaskBtn) {
+    createPotentialTask(event);
   }
 }
 
-function checkInputValuesInAside() {
-  var inputTask = document.querySelector(".task-items-input")
-  var inputTitle = document.querySelector(".title-of-task-input")
-  if (inputTask.value === "" && inputTitle.value === "") {
-    addTaskInAside.disable = true;
-  }
-}
-
-function createPotentialTask() {
+function createPotentialTask(event) {
   var asideTaskContainer = document.querySelector(".container-adding-tasks");
-  var userInput = taskInput.value;
-  console.log(userInput);
-  asideTaskContainer.insertAdjacentHTML('afterend', `<div class="new-aside-tasks"><img class="delete-img" src="assets/delete.svg" alt="Delete newly created task">${userInput}</div>`);
-  newToDoList.push(userInput);
+  if (inputTask.value == "" && inputTitle.value == "") {
+    addTaskBtn.disabled = true;
+  }else {
+    asideTaskContainer.insertAdjacentHTML('beforeend', `<div class="new-aside-tasks"><img class="delete-img" onClick="deletePossibleTask(event)" src="assets/delete.svg" alt="Delete newly created task">${inputTask.value}</div>`);
+    event.preventDefault();
+    newToDoList.taskList.push(inputTask.value);
+    console.log(newToDoList.taskList)
+    newToDoList.taskTitles.push(inputTitle.value);
+    console.log(newToDoList.taskTitles)
+    return
+  }
+}
+
+function deletePossibleTask(event) {
+  var deleteTask = document.querySelector(".delete-img")
+  var deleteTasks = document.querySelector('.new-aside-tasks');
+  if (event.target ==  deleteTask) {
+    deleteTasks.innerHTML = "";
+    return
+  }
 }

@@ -72,7 +72,7 @@ aside {
   color: #F3F6F7;
 }
 
-.title-of-task-input {
+.title-input {
   height: 5em;
   margin: 0 3%;
   border: 2px solid #1f1f3d;
@@ -114,16 +114,11 @@ justify-content: space-between;
 }
 
 .addition-task-btn {
-  height: 5em;
   width: 23%;
   background-color: #1f1f3d;
   border: 2px solid #1f1f3d;
-}
-
-.addition-task-btn-img {
-  margin: 0;
-  font-size: 400%;
-  color: #FFF;
+  font-size: 250%;
+  color: #fff;
 }
 
 .create-todo-btn {

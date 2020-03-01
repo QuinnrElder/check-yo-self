@@ -1,26 +1,14 @@
 class ToDoList {
-  constructor(id, title) {
+  constructor(id, title, array) {
    this.uniqueId = id; 
    this.taskTitles = title;
-    this.taskList = [];
+    this.taskList = array;
     this.urgent = false;
     
   }
 
-  pushToTaskList (newTask) {
-    this.taskList.push(newTask);
-  }
-
   clearTaskList() {
     this.taskList = []
-  }
-
-  timeStamp() {
-    this.uniqueId = Date.now();
-  }
-
-  labelTitle(titleValue) {
-    this.taskTitles = inputTitle.value
   }
 
   getTaskObj (taskId) {
@@ -47,21 +35,9 @@ removeTaskObj(foundTaskIndex) {
      this.removeTaskObj(foundTaskIndex)
   }
 
-   saveToStorage() {
-    var toDoId = this. uniqueId;
-    var toDoTitle = this.taskTitles;
-    var taskList = this.taskList;
-    var urgency = this.urgent;
-
-    var toDoCardInfo = {
-      id: toDoId,
-      title: toDoTitle,
-      tasks: taskList,
-      urgent: urgency,
-    }
-
-    var stringifiedToDoCard = JSON.stringify(toDoCardInfo);
-    localStorage.setItem("toDoCard", stringifiedToDoCard);
+   saveToStorage(LSOfToDo) {
+    var stringifiedToDoCard = JSON.stringify(LSOfToDo);
+    localStorage.setItem("toDoCards", stringifiedToDoCard);
   }
 
   clearInput() {

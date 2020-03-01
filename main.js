@@ -1,5 +1,4 @@
-var newToDoCard = new ToDoList();
-
+var allTasks = [];
 var inputTask = document.querySelector(".task-items-input")
 var inputTitle = document.querySelector(".title-input")
 var addTaskBtn = document.querySelector(".addition-task-btn")
@@ -11,7 +10,12 @@ var taskList = document.querySelector(".task-list");
 var noToDo = document.querySelector(".container-no-todo-cards")
 var containerOfToDo = document.querySelector(".todo-card-container")
 
-var LSOfToDo = [];
+var LSOfToDo = JSON.parse(localStorage.getItem("toDoCards") ) || [];
+console.log(LSOfToDo)
+
+window.addEventListener('load', function() {
+   handlePageLoad()
+});
 
 addTaskBtn.addEventListener("click", createPotentialTask)
 possibleTaskList.addEventListener("click", deletePotentialTask)
@@ -24,11 +28,13 @@ function createPotentialTask(event) {
     addTaskBtn.disabled = true;
   } else {
     event.preventDefault();
-    var newTask = new Task(Date.now(),  inputTask.value);
-    taskList.insertAdjacentHTML ( "beforeend", 
-     `<li class="new-aside-tasks" data-id="${newTask.id}"><img class="delete-img"  src="assets/delete.svg" alt="Delete newly created task">${newTask.content}</li>`);
-    newToDoCard.pushToTaskList (newTask);
-    console.log("task list", newToDoCard.taskList)
+    var newTask = createTaskObjects(inputTask.value)
+    displayTasksDom(newTask)
+    // var newTask = new Task(Date.now(),  inputTask.value);
+    // taskList.insertAdjacentHTML ( "beforeend", 
+    //  `<li class="new-aside-tasks" data-id="${newTask.id}"><img class="delete-img"  src="assets/delete.svg" alt="Delete newly created task">${newTask.content}</li>`);
+     allTasks.push(newTask)
+     console.log(allTasks)
     inputTask.value = "";
   }
 }
@@ -38,7 +44,7 @@ function deletePotentialTask(event) {
     var taskId = event.target.closest(".new-aside-tasks").getAttribute("data-id")
     newToDoCard.deleteTaskInListArray(taskId);
     event.target.closest(".new-aside-tasks").remove();
-    console.log("edited task list", newToDoCard.taskList)
+    // console.log("edited task list", newToDoCard.taskList)
   }
 }
 
@@ -50,7 +56,7 @@ function clearAll() {
     inputTitle = "";
     inputTask = "";
     newToDoCard.clearTaskList();
-    console.log("cleared task list", newToDoCard.taskList)
+    // console.log("cleared task list", newToDoCard.taskList)
   }
 }
 
@@ -62,40 +68,60 @@ if (inputTitle.value === "") {
   event.preventDefault();
   noToDo.hidden = true;
   containerOfToDo.hidden = false;
+console.log(allTasks)
+  var newToDoCard =  createToDoObjects(inputTitle.value, allTasks);
+LSOfToDo.push(newToDoCard);
 
-newToDoCard.timeStamp()
-console.log("time stamp", newToDoCard.uniqueId)
+  newToDoCard.saveToStorage(LSOfToDo)
 
-newToDoCard.labelTitle(inputTitle.value)
-console.log("title", newToDoCard.taskTitles)
+  displayCardsDom (newToDoCard)
+}
+inputTitle.value = "";
+inputTask.value = "";
+allTasks = [];
+taskList.innerHTML = "";
+}
 
-  LSOfToDo.push(newToDoCard);
-  console.log(LSOfToDo)
+function createTaskObjects(inputTask) {
+  var newTask = new Task(Date.now(),  inputTask);
+  return newTask
+}
 
-  newToDoCard.saveToStorage()
+function displayTasksDom(newTask) {
+  taskList.insertAdjacentHTML ( "beforeend", 
+  `<li class="new-aside-tasks" data-id="${newTask.id}"><img class="delete-img"  src="assets/delete.svg" alt="Delete newly created task">${newTask.content}</li>`);
+}
 
+function handlePageLoad() {
+  mapOfToDo()
+ 
+}
+
+function mapOfToDo() {
+LSOfToDo.map(function(toDoCard){
+  var newToDoCard =createToDoObjects(toDoCard)
+  displayCardsDom (newToDoCard)
+  // console.log(toDoCard)
+});
+}
+
+function createToDoObjects(inputTitle, allTasks) {
+  var newToDoCard = new ToDoList(Date.now(), inputTitle, allTasks);
+  console.log(newToDoCard)
+  return newToDoCard
+}
+
+function displayCardsDom (newToDoCard) {
+  // console.log(newToDoCard)
   containerOfToDo.insertAdjacentHTML ( "beforeend",  
   `<div class="todo-card" data-id="${newToDoCard.uniqueId}">
   <h3>${newToDoCard.taskTitles}</h3>
   <ul class="all-tasks-in-todo">
-  <li class="new-todo-tasks" data-id="${newTask.id}"><img class="delete-img"  src="assets/delete.svg" alt="Delete newly created task">${newTask.content}</li>
+  <li class="new-todo-tasks" data-id="${newToDoCard.uniqueId}"><img class="delete-img"  src="assets/delete.svg" alt="Delete newly created task">${newToDoCard.taskList}</li>
   </ul>  
   <section class="todo-board-footer">
     <div class="make-card-urgent"><img class="urgent-img" src="assets/urgent.svg" alt="Is an icon that allows user to make todo card urgent"/>URGENT</div>
     <div class="delete-todo-card"><img class="delete-img-for-card" src="assets/delete.svg" alt="Is an icon that allows user to delete todo card"/>DELETE</div>
   </section>
 </div>`);
-}
-inputTitle.value = "";
-inputTask.value = "";
-newToDoCard.clearTaskList()
-taskList.innerHTML = "";
-}
-
-function disableButton() {
-
-}
-
-function enableButton() {
-
 }

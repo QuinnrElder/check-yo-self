@@ -7,6 +7,22 @@ class ToDoList {
     
   }
 
+  pushToTaskList (newTask) {
+    this.taskList.push(newTask);
+  }
+
+  clearTaskList() {
+    this.taskList = []
+  }
+
+  timeStamp() {
+    this.uniqueId = Date.now();
+  }
+
+  labelTitle(titleValue) {
+    this.taskTitles = inputTitle.value
+  }
+
   getTaskObj (taskId) {
     console.log(taskId)
     var taskObj = this.taskList.find(function(task) {
@@ -26,16 +42,36 @@ removeTaskObj(foundTaskIndex) {
 }
 
   deleteTaskInListArray(taskId) {
-    console.log(taskId)
     var foundObj = this.getTaskObj (taskId)
-    console.log("foundObj", foundObj)
-    var foundTaskIndex = this.getIndex(foundObj)
-    console.log("foundObjIndex", foundTaskIndex)
+    var foundTaskIndex = this.getIndex(foundObj) 
      this.removeTaskObj(foundTaskIndex)
-      console.log("updated-task-list", this.taskList)
   }
 
-  saveToStorage() {
+   saveToStorage() {
+    var toDoId = this. uniqueId;
+    var toDoTitle = this.taskTitles;
+    var taskList = this.taskList;
+    var urgency = this.urgent;
+
+    var toDoCardInfo = {
+      id: toDoId,
+      title: toDoTitle,
+      tasks: taskList,
+      urgent: urgency,
+    }
+
+    var stringifiedToDoCard = JSON.stringify(toDoCardInfo);
+    localStorage.setItem("toDoCard", stringifiedToDoCard);
+  }
+
+  clearInput() {
+    this.uniqueId = "";
+    this.taskTitles = "";
+    this.taskList = [];
+    this.urgent = false;
+  }
+
+  retrieveLocalStorage() {
 
   }
 

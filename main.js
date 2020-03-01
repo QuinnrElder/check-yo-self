@@ -10,6 +10,8 @@ var taskList = document.querySelector(".task-list");
 var noToDo = document.querySelector(".container-no-todo-cards")
 var containerOfToDo = document.querySelector(".todo-card-container")
 
+console.log(allTasks)
+
 var LSOfToDo = JSON.parse(localStorage.getItem("toDoCards") ) || [];
 console.log(LSOfToDo)
 
@@ -69,9 +71,9 @@ if (inputTitle.value === "") {
   noToDo.hidden = true;
   containerOfToDo.hidden = false;
 console.log(allTasks)
-  var newToDoCard =  createToDoObjects(inputTitle.value, allTasks);
+  var newToDoCard =  createToDoObjectClick(inputTitle.value);
 LSOfToDo.push(newToDoCard);
-
+console.log(LSOfToDo)
   newToDoCard.saveToStorage(LSOfToDo)
 
   displayCardsDom (newToDoCard)
@@ -99,14 +101,23 @@ function handlePageLoad() {
 
 function mapOfToDo() {
 LSOfToDo.map(function(toDoCard){
-  var newToDoCard =createToDoObjects(toDoCard)
-  displayCardsDom (newToDoCard)
+  var newToDoCard =createToDoObjectsPageLoad(toDoCard)
   // console.log(toDoCard)
+  return displayCardsDom(newToDoCard)
+  console.log(newToDoCard)
+  // displayCardsDom (newToDoCard)
 });
 }
 
-function createToDoObjects(inputTitle, allTasks) {
+function createToDoObjectClick(inputTitle) {
   var newToDoCard = new ToDoList(Date.now(), inputTitle, allTasks);
+  // console.log(newToDoCard)
+  return newToDoCard
+}
+
+function createToDoObjectsPageLoad(toDoCard) {
+  // console.log(newToDoCard)
+  var newToDoCard = new ToDoList(toDoCard.uniqueId, toDoCard.taskTitles, toDoCard.taskList);
   console.log(newToDoCard)
   return newToDoCard
 }

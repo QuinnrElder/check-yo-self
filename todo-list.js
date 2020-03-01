@@ -1,10 +1,14 @@
 class ToDoList {
-  constructor(id, title) {
+  constructor(id, title, array) {
    this.uniqueId = id; 
    this.taskTitles = title;
-    this.taskList = [];
+    this.taskList = array;
     this.urgent = false;
     
+  }
+
+  clearTaskList() {
+    this.taskList = []
   }
 
   getTaskObj (taskId) {
@@ -26,18 +30,24 @@ removeTaskObj(foundTaskIndex) {
 }
 
   deleteTaskInListArray(taskId) {
-    console.log(taskId)
     var foundObj = this.getTaskObj (taskId)
-    console.log("foundObj", foundObj)
-    var foundTaskIndex = this.getIndex(foundObj)
-    console.log("foundObjIndex", foundTaskIndex)
+    var foundTaskIndex = this.getIndex(foundObj) 
      this.removeTaskObj(foundTaskIndex)
-      console.log("updated-task-list", this.taskList)
   }
 
-  
+   saveToStorage(LSOfToDo) {
+    var stringifiedToDoCard = JSON.stringify(LSOfToDo);
+    localStorage.setItem("toDoCards", stringifiedToDoCard);
+  }
 
-  saveToStorage() {
+  clearInput() {
+    this.uniqueId = "";
+    this.taskTitles = "";
+    this.taskList = [];
+    this.urgent = false;
+  }
+
+  retrieveLocalStorage() {
 
   }
 

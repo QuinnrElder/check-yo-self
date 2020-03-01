@@ -158,20 +158,75 @@ justify-content: space-between;
 .container-all-todo-cards {
 display: flex;
 width: 100vw;
-flex-direction: column;
+height: 100vh;
 }
 
-.container-no-todo-tasks {
+.container-no-todo-cards {
   text-align: center;
   font-size: 400%;
   opacity: .5;
   margin: 10%;
+  width: 100%;
 }
 
-.container-todo-card-info {
-
+.todo-card-container {
+  width: 90%;
+  flex-direction: column;
+flex-wrap: wrap;
+  margin: 5%;
+  height: 100vh;
 }
 
+.todo-card {
+  margin: 5%;
+  border: 2px solid #c7d3d8;
+  width: 40%;
+}
+
+h3 {
+  border-bottom: 2px solid #c7d3d8;
+  margin: 0;
+  font-size: 2.5em;
+  padding-left: 3%;
+}
+
+.all-tasks-in-todo {
+  display: flex;
+  flex-direction: column;
+}
+
+.todo-board-footer {
+  border-top: 2px solid #c7d3d8;
+  display: flex;
+  flex-direction: row;
+}
+
+.make-card-urgent {
+  display: flex;
+  flex-direction: column;
+  margin: 2%;
+  margin: 2%;
+  width: 8%;
+}
+
+
+.urgent-img {
+  width: 48%;
+    display: block;
+    margin-left: 28%;
+}
+
+.delete-img-for-card {
+  width: 60%;
+    margin-left: 13%;
+}
+
+.delete-todo-card {
+  display: flex;
+  flex-direction: column;
+  margin: 2% 0 0 77%;
+  width: 8%;
+}
 
 
 xxx

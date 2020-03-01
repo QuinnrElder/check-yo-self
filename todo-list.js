@@ -35,8 +35,6 @@ removeTaskObj(foundTaskIndex) {
       console.log("updated-task-list", this.taskList)
   }
 
-  
-
   saveToStorage() {
 
   }

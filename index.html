@@ -34,17 +34,24 @@
           <input class="task-items-input" type="text" name="new-task-items" autocomplete="off" value="">
           <button class="addition-task-btn">+</button>
         </div>
-        <button class="create-todo-btn" disabled>Make Task List</button>
+        <button class="create-todo-btn">Make Task List</button>
         <button class="clear-all-btn">Clear All</button>
         <button class="urgency-btn"disabled>Filter By Urgency</button>
       </form>
     </aside>
     <div class="container-all-todo-cards">
-      <section class="container-no-todo-tasks">
+      <section class="container-no-todo-cards">
         <p>We Need to Create Something To-Do Yo'</p>
       </section>
-      <section class="container-todo-card-info">
+      <section class="container-todo-card-info" hidden>
         <!-- todo cards info will populate  here-->
+        <div class="todo-card">
+          <h3>Task Title</h3>
+          <ul class="all-tasks-in-todo"></ul>
+          <section class="todo-board-footer">
+            <div class="make-card-urgent"><img class="urgent-img" src="assets/urgent.svg" alt="Is an icon that allows user to make todo card urgent"/>URGENT</div>
+            <div class="delete-todo-card"><img class="delete-img-for-card" src="assets/delete.svg" alt="Is an icon that allows user to delete todo card"/>DELETE</div>
+          </section>
       </section>
     </div>
 

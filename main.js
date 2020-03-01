@@ -16,40 +16,35 @@ clearAllToDo.addEventListener("click", clearAll)
 function createPotentialTask(event) {
   var taskList = document.querySelector(".task-list");
   if (inputTask.value == "" && inputTitle.value == "") {
-    event.preventDefault();
     addTaskBtn.disabled = true;
   } else {
     event.preventDefault();
     var newTask = new Task(Date.now(),  inputTask.value);
     taskList.insertAdjacentHTML ( "beforeend",  `<li class="new-aside-tasks" data-id="${newTask.id}"><img class="delete-img"  src="assets/delete.svg" alt="Delete newly created task">${newTask.content}</li>`);
     newToDoList.taskList.push(newTask);
-    // console.log( newToDoList.taskList)
-    // console.log(newTask)
+  
     inputTask.value = "";
   }
 }
 
-// what am I doing where i can only delete one thing???????
 function deletePotentialTask(event) {
   if (event.target.closest(".new-aside-tasks")) {
-    console.log(event.target.closest(".new-aside-tasks"))
     var taskId = event.target.closest(".new-aside-tasks").getAttribute("data-id")
-    // console.log(taskId)
     newToDoList.deleteTaskInListArray(taskId);
     event.target.closest(".new-aside-tasks").remove();
-  
   }
 }
 
 function clearAll() {
-
-  if (inputTitle === "" || inputTask === "") {
+  if (inputTitle.value === "" || inputTask.value === "") {
     clearAllToDo.disabled = true;
-    console.log(clearAllToDo.disabled)
   } else {
+    console.log(newToDoList.taskList)
     clearAllToDo.disabled = false;
     inputTitle = "";
     inputTask = "";
+    newToDoList.taskList = [];
+    console.log(newToDoList.taskList)
   }
 }
 

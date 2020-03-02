@@ -96,6 +96,18 @@ justify-content: space-between;
   margin-right: 3%;
 }
 
+.new-todo-tasks {
+  display: flex;
+  margin: 4%;
+  font-size: 1.5em;
+    color: #587a8a;
+}
+
+.checkbox-img {
+  width: 1em;
+  margin-right: 3%;
+}
+
 .task-item-text {
   font-size: 2em;
   margin: 6% 0 0 3%;

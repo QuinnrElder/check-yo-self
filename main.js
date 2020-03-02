@@ -10,10 +10,7 @@ var taskList = document.querySelector(".task-list");
 var noToDo = document.querySelector(".container-no-todo-cards")
 var containerOfToDo = document.querySelector(".todo-card-container")
 
-console.log(allTasks)
-
 var LSOfToDo = JSON.parse(localStorage.getItem("toDoCards") ) || [];
-console.log(LSOfToDo)
 
 window.addEventListener('load', function() {
    handlePageLoad()
@@ -32,11 +29,7 @@ function createPotentialTask(event) {
     event.preventDefault();
     var newTask = createTaskObjects(inputTask.value)
     displayTasksDom(newTask)
-    // var newTask = new Task(Date.now(),  inputTask.value);
-    // taskList.insertAdjacentHTML ( "beforeend", 
-    //  `<li class="new-aside-tasks" data-id="${newTask.id}"><img class="delete-img"  src="assets/delete.svg" alt="Delete newly created task">${newTask.content}</li>`);
      allTasks.push(newTask)
-     console.log(allTasks)
     inputTask.value = "";
   }
 }
@@ -46,7 +39,6 @@ function deletePotentialTask(event) {
     var taskId = event.target.closest(".new-aside-tasks").getAttribute("data-id")
     newToDoCard.deleteTaskInListArray(taskId);
     event.target.closest(".new-aside-tasks").remove();
-    // console.log("edited task list", newToDoCard.taskList)
   }
 }
 
@@ -58,7 +50,6 @@ function clearAll() {
     inputTitle = "";
     inputTask = "";
     newToDoCard.clearTaskList();
-    // console.log("cleared task list", newToDoCard.taskList)
   }
 }
 
@@ -70,10 +61,8 @@ if (inputTitle.value === "") {
   event.preventDefault();
   noToDo.hidden = true;
   containerOfToDo.hidden = false;
-// console.log(allTasks)
   var newToDoCard =  createToDoObjectClick(inputTitle.value);
 LSOfToDo.push(newToDoCard);
-// console.log(LSOfToDo)
   newToDoCard.saveToStorage(LSOfToDo)
 
   displayCardsDom (newToDoCard)
@@ -95,41 +84,51 @@ function displayTasksDom(newTask) {
 }
 
 function handlePageLoad() {
-  mapOfToDo()
-  noToDo.hidden = true;
-  containerOfToDo.hidden = false;
+  if(LSOfToDo.length <= 0) {
+    noToDo.hidden = false;
+    containerOfToDo.hidden = true;
+  } else {
+    mapOfToDo()
+    noToDo.hidden = true;
+    containerOfToDo.hidden = false;
+  }
 }
 
 function mapOfToDo() {
 LSOfToDo.map(function(toDoCard){
   var newToDoCard =createToDoObjectsPageLoad(toDoCard)
-  // console.log(newToDoCard)
   return displayCardsDom(newToDoCard)
-  console.log(newToDoCard)
-  // displayCardsDom (newToDoCard)
 });
+}
+
+function mapOfTaskArray(taskList) {
+  console.log(taskList)
+var mappedTask = taskList.map(function(task){
+var additionOfTask =` <li class="new-todo-tasks"><img class="checkbox-img"  src="assets/checkbox.svg" alt="Delete newly created task">${task.content}</li>`
+return  additionOfTask
+});
+return mappedTask
 }
 
 function createToDoObjectClick(inputTitle) {
   var newToDoCard = new ToDoList(Date.now(), inputTitle, allTasks);
-  // console.log(newToDoCard)
   return newToDoCard
 }
 
 function createToDoObjectsPageLoad(toDoCard) {
-  // console.log(newToDoCard)
   var newToDoCard = new ToDoList(toDoCard.uniqueId, toDoCard.taskTitles, toDoCard.taskList);
-  // console.log(newToDoCard)
   return newToDoCard
 }
 
 function displayCardsDom (newToDoCard) {
-  // console.log(newToDoCard)
+  console.log(newToDoCard.taskList);
+  console.log(newToDoCard.taskTitles);
+  console.log(newToDoCard.taskList);
   containerOfToDo.insertAdjacentHTML ( "beforeend",  
   `<div class="todo-card" data-id="${newToDoCard.uniqueId}">
   <h3>${newToDoCard.taskTitles}</h3>
   <ul class="all-tasks-in-todo">
-  <li class="new-todo-tasks" data-id="${newToDoCard.uniqueId}"><img class="delete-img"  src="assets/delete.svg" alt="Delete newly created task">${newToDoCard.taskList}</li>
+ ${ mapOfTaskArray(newToDoCard.taskList)}
   </ul>  
   <section class="todo-board-footer">
     <div class="make-card-urgent"><img class="urgent-img" src="assets/urgent.svg" alt="Is an icon that allows user to make todo card urgent"/>URGENT</div>

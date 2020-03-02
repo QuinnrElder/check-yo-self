@@ -1,3 +1,4 @@
+
 var allTasks = [];
 var inputTask = document.querySelector(".task-items-input")
 var inputTitle = document.querySelector(".title-input")

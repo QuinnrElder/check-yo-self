@@ -84,7 +84,7 @@ flex-direction: column;
 justify-content: space-between;
 }
 
-.new-aside-tasks {
+.user-tasks {
   display: flex;
   margin: 4%;
   font-size: 1.5em;
@@ -230,13 +230,13 @@ h3 {
 
 .delete-img-for-card {
   width: 60%;
-    margin-left: 13%;
+    margin-left: 65%;
 }
 
 .delete-todo-card {
   display: flex;
   flex-direction: column;
-  margin: 2% 0 0 77%;
+  margin: 2% 0 0 70%;
   width: 8%;
 }
 

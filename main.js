@@ -1,5 +1,4 @@
 var addTaskBtn = document.querySelector(".addition-task-btn")
-var asideForm = document.querySelector(".form");
 var clearAllToDo = document.querySelector(".clear-all-btn")
 var containsToDoCards = document.querySelector(".todo-card-container")
 var inputTask = document.querySelector(".task-items-input")
@@ -17,7 +16,7 @@ clearAllToDo.addEventListener("click", clearAllBtn)
 makeToDoCardBtn.addEventListener("click", createToDoCard)
 possibleTaskList.addEventListener("click", deletePotentialTask)
 
-// If the page is being visited for the first time, jump to line 47
+// If the page is being visited for the first time, jump to line 48
 window.addEventListener('load', function () {
   handlePageLoad();
 });
@@ -34,7 +33,7 @@ function handlePageLoad() {
 function mapOfToDo() {
   var toDoCards = localStorageArray.map(function (toDoCard) {
     var newToDoCard = createToDoObjectsPageLoad(toDoCard)
-    var displayedCard =  displayCards(newToDoCard)
+    var displayedCard = displayCards(newToDoCard)
     return displayedCard
   });
   localStorageArray = toDoCards
@@ -81,7 +80,6 @@ function deleteTaskInListArray(taskId) {
   var foundObj = getTaskObj(taskId);
   var foundTaskIndex = getTaskIndex(foundObj);
   foundObj.removeTaskObj(foundTaskIndex);
-  console.log(allTasksArray)
 }
 
 function getTaskObj(taskId) {

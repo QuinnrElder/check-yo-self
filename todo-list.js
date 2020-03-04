@@ -15,7 +15,9 @@ class ToDoList {
 
   }
 
-  deleteFromStorage() {
+  deleteFromStorage(localStorageArray, matchedCardIndex) {
+    localStorageArray.splice(matchedCardIndex, 1)
+    this.saveToStorage(localStorageArray)
 
   }
 

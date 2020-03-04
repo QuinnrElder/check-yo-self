@@ -7,7 +7,7 @@
 - This project was an extreme level of implimentation! This project pushed all my skills to the limit, not to mention a few of my buttons. This was the first solo project that I took on where I wasn't sure how I would be able to accomplish this tasks let alone approach it step by step. The focus of this project for me was not only get as far as I could in the code base. But to also allow as little tech debtas possible, lots of suedo-coding, "rubber-ducking" and not to mention understanding my code base. I wasnt able to get where I had orriginally planned out! Making sure that I was following my guidelines and the App-Comp rubric! I ran into tech debt early on. Taking a step back and being able to refactor the code base to get rid of the tech debt I was createing was a huge win for myself and my level of understanding! My biggest take aways from this project was how to manipulate complex data-types within arrays, localStorage(JSON.stringify(), LS.set, JSON.parse(), LS.get), getting object intances to manipulate date and methods in seperate files.
 
 ## ScreenShot
-![]assets/
+![]assets/readMeScreenShot.jpg
 
 # Project Specs and App-Comp
 ## Specification

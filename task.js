@@ -4,4 +4,8 @@ class Task {
     this.content = content
     this.isCompleted = false;
   }
+  removeTaskObj(foundTaskIndex) {
+    allTasksArray.splice(foundTaskIndex, 1);
   }
+
+}

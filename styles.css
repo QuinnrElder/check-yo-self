@@ -10,24 +10,24 @@ body {
 }
 
 header {
-background-color: #1f1f3d;
-height: 15%;
-width: 100vw;
+  background-color: #1f1f3d;
+  height: 15%;
+  width: 100vw;
 }
 
 .container-header-info {
   display: inline-flex;
   flex-direction: row;
-  width:100%;
+  width: 100%;
   margin-top: 1%;
 }
 
 h1 {
   color: #FFF;
-   font-size: 330%;
+  font-size: 330%;
   font-weight: 800;
   margin: 0 20% 0 8%;
-  width: 50%; 
+  width: 50%;
 }
 
 .yo-title-txt {
@@ -40,8 +40,8 @@ h1 {
 }
 
 .search-bar-btn {
-   width: 25%;
-  background-color: lightgray; 
+  width: 25%;
+  background-color: lightgray;
 }
 
 .search-bar-input {
@@ -50,7 +50,7 @@ h1 {
 }
 
 main {
-display: flex;
+  display: flex;
 }
 
 
@@ -79,17 +79,17 @@ aside {
 }
 
 .container-adding-tasks {
-display: inline-flex;
-flex-direction: column;
-justify-content: space-between;
+  display: inline-flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
 .user-tasks {
   display: flex;
   margin: 4%;
   font-size: 1.5em;
-    color: #F3F6F7;
-  }
+  color: #F3F6F7;
+}
 
 .delete-img {
   width: 1em;
@@ -168,9 +168,9 @@ justify-content: space-between;
 }
 
 .container-all-todo-cards {
-display: flex;
-width: 100vw;
-height: 100vh;
+  display: flex;
+  width: 100vw;
+  height: 100vh;
 }
 
 .container-no-todo-cards {
@@ -184,7 +184,7 @@ height: 100vh;
 .todo-card-container {
   width: 90%;
   flex-direction: column;
-flex-wrap: wrap;
+  flex-wrap: wrap;
   margin: 5%;
   height: 100vh;
 }
@@ -218,26 +218,32 @@ h3 {
   flex-direction: column;
   margin: 2%;
   margin: 2%;
-  width: 8%;
+  width: 20%;
+  border: none;
+  background-color: white;
+  font-size: 100%;
 }
 
 
 .urgent-img {
-  width: 48%;
-    display: block;
-    margin-left: 28%;
+  width: 45%;
+  display: block;
+  margin-left: 10%;
 }
 
 .delete-img-for-card {
-  width: 60%;
-    margin-left: 65%;
+  width: 40%;
 }
 
 .delete-todo-card {
   display: flex;
   flex-direction: column;
-  margin: 2% 0 0 70%;
-  width: 8%;
+  justify-content: center;
+  margin: 2% 0 0 60%;
+  width: 16%;
+  border: none;
+  background-color: white;
+  font-size: 100%;
 }
 
 

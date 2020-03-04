@@ -7,17 +7,17 @@ var inputTitle = document.querySelector(".title-input")
 var makeToDoCardBtn = document.querySelector(".create-todo-btn")
 var noToDoCards = document.querySelector(".container-no-todo-cards")
 var possibleTaskList = document.querySelector(".container-potential-tasks")
-// var taskList = document.querySelector(".container-potential-tasks");
+
 
 var allTasksArray = [];
 var localStorageArray = JSON.parse(localStorage.getItem("toDoCards")) || [];
 
 addTaskBtn.addEventListener("click", createPotentialTask)
 clearAllToDo.addEventListener("click", clearAllBtn)
-containsToDoCards.addEventListener("click", checkTaskOffTodoCard)
 makeToDoCardBtn.addEventListener("click", createToDoCard)
 possibleTaskList.addEventListener("click", deletePotentialTask)
 
+// If the page is being visited for the first time, jump to line 47
 window.addEventListener('load', function () {
   handlePageLoad();
 });
@@ -32,10 +32,13 @@ function handlePageLoad() {
 }
 
 function mapOfToDo() {
-  localStorageArray.map(function (toDoCard) {
+  var toDoCards = localStorageArray.map(function (toDoCard) {
     var newToDoCard = createToDoObjectsPageLoad(toDoCard)
-    return displayCardsDom(newToDoCard)
+    var displayedCard =  displayCards(newToDoCard)
+    return displayedCard
   });
+  localStorageArray = toDoCards
+  return toDoCards
 }
 
 function createToDoObjectsPageLoad(toDoCard) {
@@ -43,6 +46,7 @@ function createToDoObjectsPageLoad(toDoCard) {
   return newToDoCard
 }
 
+// If the page is being visited for the first time, noTodoCards on reload.
 function createPotentialTask(event) {
   if (inputTask.value === "" || inputTitle.value === "") {
     return
@@ -75,24 +79,21 @@ function deletePotentialTask(event) {
 
 function deleteTaskInListArray(taskId) {
   var foundObj = getTaskObj(taskId);
-  var foundTaskIndex = getIndex(foundObj);
-  removeTaskObj(foundTaskIndex);
+  var foundTaskIndex = getTaskIndex(foundObj);
+  foundObj.removeTaskObj(foundTaskIndex);
+  console.log(allTasksArray)
 }
 
 function getTaskObj(taskId) {
-  var taskObj = allTasksArray.find(function (task) {
+  var foundObj = allTasksArray.find(function (task) {
     return task.id == taskId;
   });
-  return taskObj
+  return foundObj
 }
 
-function getIndex(foundObj) {
+function getTaskIndex(foundObj) {
   var foundTaskIndex = allTasksArray.indexOf(foundObj);
   return foundTaskIndex
-}
-
-function removeTaskObj(foundTaskIndex) {
-  allTasksArray.splice(foundTaskIndex, 1);
 }
 
 function createToDoCard(event) {
@@ -104,7 +105,7 @@ function createToDoCard(event) {
     var newToDoCard = createToDoObjectClick(inputTitle.value);
     localStorageArray.push(newToDoCard);
     newToDoCard.saveToStorage(localStorageArray);
-    displayCardsDom(newToDoCard);
+    displayCards(newToDoCard);
   }
   inputTitle.value = "";
   inputTask.value = "";
@@ -117,7 +118,7 @@ function createToDoObjectClick(inputTitle) {
   return newToDoCard
 }
 
-function displayCardsDom(newToDoCard) {
+function displayCards(newToDoCard) {
   containsToDoCards.insertAdjacentHTML("beforeend",
     `<div class="todo-card" data-id="${newToDoCard.uniqueId}">
   <h3>${newToDoCard.taskTitles}</h3>
@@ -125,8 +126,8 @@ function displayCardsDom(newToDoCard) {
  ${mapOfTaskArray(newToDoCard.taskList)}
   </ul>  
   <section class="todo-board-footer">
-    <div class="make-card-urgent"><img class="urgent-img" src="assets/urgent.svg" alt="Is an icon that allows user to make todo card urgent"/>URGENT</div>
-    <div class="delete-todo-card"><img class="delete-img-for-card" src="assets/delete.svg" alt="Is an icon that allows user to delete todo card"/>DELETE</div>
+    <button class="make-card-urgent"><img class="urgent-img" src="assets/urgent.svg" alt="Is an icon that allows user to make todo card urgent"/>URGENT</button>
+    <button class="delete-todo-card" data-id="${newToDoCard.uniqueId}" onClick="deleteToDoCard(event)"><img class="delete-img-for-card" src="assets/delete.svg" alt="Is an icon that allows user to delete todo card"/>DELETE</button>
   </section>
 </div>`);
   return newToDoCard
@@ -150,13 +151,33 @@ function clearAllBtn() {
   }
 }
 
-function checkTaskOffTodoCard(event) {
-  if (event.target.closest(".all-tasks-in-todo")) {
-    console.log(event.target.closest(".all-tasks-in-todo"))
-    var removeTask = event.target.closest(".all-tasks-in-todo").getAttribute("data-id")
-    console.log(removeTask)
-    // removeTask.taskList
+function deleteToDoCard(event) {
+  if (event.target.closest(".delete-todo-card")) {
+    var toDoCardId = event.target.closest(".delete-todo-card").getAttribute("data-id");
+    deleteCardsInLSArray(toDoCardId);
+    event.target.closest(".todo-card").remove();
+    if (localStorageArray.length === 0) {
+      notShowingCards()
+    }
   }
+}
+
+function deleteCardsInLSArray(toDoCardId) {
+  var foundCard = getMatchingId(toDoCardId);
+  var matchedCardIndex = getIndex(foundCard);
+  foundCard.deleteFromStorage(localStorageArray, matchedCardIndex)
+}
+
+function getMatchingId(toDoCardId) {
+  var foundCard = localStorageArray.find(function (toDoCard) {
+    return toDoCard.uniqueId == toDoCardId
+  });
+  return foundCard;
+}
+
+function getIndex(foundCard) {
+  var matchedCardIndex = localStorageArray.indexOf(foundCard)
+  return matchedCardIndex
 }
 
 function notShowingCards() {

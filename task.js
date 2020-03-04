@@ -7,5 +7,4 @@ class Task {
   removeTaskObj(foundTaskIndex) {
     allTasksArray.splice(foundTaskIndex, 1);
   }
-
 }
